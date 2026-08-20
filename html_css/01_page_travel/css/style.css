@@ -1,0 +1,106 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ font-family:'Inter',sans-serif; color:#1f1f1f; }
+
+  header{
+    background:#f4f4f7;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 24px;
+    position:relative;
+  }
+
+  .logo{ display:flex; align-items:center; gap:8px; font-weight:700; }
+  .logo .dot{ width:10px; height:10px; border-radius:50%; background:#FFDDB8; }
+
+  /* nav agrupa os links + botão, assim os dois "somem juntos" no mobile */
+  .nav-group{ display:flex; align-items:center; gap:2rem; }
+
+.navegation li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navegation-icon {
+  display: none;
+}
+  .navegation{
+    display:flex;
+    gap:1.5rem;
+    list-style:none;
+  }
+  .navegation a{
+    text-decoration:none;
+    color:#1f1f1f;
+    font-size:14px;
+    font-weight:500;
+  }
+
+  .navegation-icon{
+    display: none;
+  }
+
+  .btn-reservation{
+    background:#FFDDB8;
+    padding:10px 20px;
+    border-radius:6px;
+    border:1px solid #1f1f1f;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .btn-reservation:hover{ background:#e9c89d; }
+
+  .hamburguer{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:4px;
+  }
+
+
+  /* ===== MOBILE ===== */
+  @media (max-width:768px){
+    .hamburguer{ display:block; }
+
+    .nav-group{
+      /* some do fluxo normal e vira um painel absoluto */
+      position:absolute;
+      top:100%;
+      left:0;
+      width:100%;
+      background:#f4f4f7;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:1.25rem;
+      padding:20px 24px;
+
+      /* estado FECHADO: existe no DOM, mas invisível e "encolhido" */
+      max-height:0;
+      overflow:hidden;
+      opacity:0;
+      transition:max-height .3s ease, opacity .25s ease;
+    }
+
+    .navegation{
+      flex-direction:column;
+      gap:1rem;
+      
+    }
+    
+   .navegation-icon {
+    display: block;
+    font-size: 22px;
+  }
+
+
+    /* estado ABERTO: JS adiciona essa classe no <header> */
+    header.aberto .nav-group{
+      max-height:320px; /* alto o bastante pra caber o conteúdo */
+      opacity:1;
+    }
+  }
