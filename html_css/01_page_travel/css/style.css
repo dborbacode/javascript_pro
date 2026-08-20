@@ -75,6 +75,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     h1{
       max-width: 700px;
     }
@@ -127,10 +128,18 @@
     font-size: 22px;
   }
 
+  .hero > h1{
+    font-size: 36px;
+  }
+  .hero > p {
+    font-size: 16px;
+  }
 
     /* estado ABERTO: JS adiciona essa classe no <header> */
     header.aberto .nav-group{
       max-height:320px; /* alto o bastante pra caber o conteúdo */
       opacity:1;
     }
+
+
   }
